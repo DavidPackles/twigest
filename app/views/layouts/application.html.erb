@@ -8,7 +8,29 @@
 </head>
 <body>
 
-<%= yield %>
+  <div class="container">
+    <ul class="nav nav-tabs">
+      <li><%= link_to "Home", root_path %></li>
+
+      <div class="pull-right user-info">
+      <% if current_user %>
+        <%= link_to edit_user_registration_path, class: 'btn btn-primary btn-sm' do %>
+          <span class="glyphicon glyphicon-user"></span>
+        <% end %>
+      <% else %>
+          <%= link_to "Sign In", new_user_session_path %> or
+          <%= link_to "Sign Up", new_user_registration_path %>
+      <% end %>
+
+      </div>
+    </ul>
+
+  <%= yield %>
+
+  </div>
+
+
+
 
 </body>
 </html>
